@@ -16,6 +16,8 @@ class LoginPageLocators:
 
     blank_error_css = ".fa.fa-exclamation"
 
+    cookie_css = ".core_acceptCookies"
+
 class ProductSearchLocators:
 
     search_input_xpath = "//input[@cy-data='headerSearch']"
@@ -23,6 +25,8 @@ class ProductSearchLocators:
 
     dropdown_tag_name = "select"
     search_order_page = "https://printshop-24.pl/category/sort/price/?q="
+    wrapped_content_css = "div.row:nth-child(3)"
+
 
 class UserAccountLocators:
 
@@ -44,6 +48,7 @@ class UserAccountLocators:
     name_check_xpath = "(//span[@class='text-field'])[4]"
     adress_check_xpath = "(//span[@class='text-field'])[5]"
 
+
 class ShoppingCartLocators:
 
     menu_link_text = "MENU"
@@ -62,5 +67,7 @@ class ShoppingCartLocators:
     remove_basket_css = "tbody tr:nth-child(2) td:nth-child(8) i:nth-child(1)"
     ok_remove_button_css = "button[class='swal2-confirm btn styled']"
     remove_info_xpath = "//div[@class='cart-empty ']"
+
+
 
 

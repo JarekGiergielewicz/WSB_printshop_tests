@@ -1,7 +1,7 @@
-import time
 from utils.utilities import move_to_elenent
 from selenium.webdriver.common.by import By
 from locators.locators import ShoppingCartLocators
+from locators.locators import LoginPageLocators
 import allure
 
 class CartPage:
@@ -20,6 +20,7 @@ class CartPage:
         self.remove_basket_css = ShoppingCartLocators.remove_basket_css
         self.ok_remove_button_css = ShoppingCartLocators.ok_remove_button_css
         self.remove_info_xpath = ShoppingCartLocators.remove_info_xpath
+        self.cookie_css = LoginPageLocators.cookie_css
 
     @allure.step("Choose product")
     def choose_product(self):
@@ -29,6 +30,12 @@ class CartPage:
         # Step 2: Choose a product for editing.
         self.driver.find_element(By.XPATH, self.menu_pillow_xpath).click()
         self.driver.find_element(By.CSS_SELECTOR, self.pillow_content_xpath).click()
+        self.cookie_css = LoginPageLocators.cookie_css
+
+    @allure.step("Function to disable cookies on the website.")
+    def disable_cookies(self):
+        self.driver.find_element(By.CSS_SELECTOR, self.cookie_css).click()
+
 
     @allure.step("Increase product quantity in the cart")
     def basket_operations(self):

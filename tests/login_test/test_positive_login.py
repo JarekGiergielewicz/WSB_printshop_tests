@@ -14,6 +14,7 @@ class TestPositiveLogin:
 
         # Initialize the login page
         login_pass = LoginPage(self.driver)
+        login_pass.disable_cookies()
         login_pass.go_to_login_page()
 
         # Log in with test data

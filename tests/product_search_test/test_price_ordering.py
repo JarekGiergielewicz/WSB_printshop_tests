@@ -13,6 +13,7 @@ class TestOrderSearch:
     def test_search_product_correct(self, search_query):
         # Initialize the product search page
         product_search = ProductSearch(self.driver)
+        product_search.disable_cookies()
 
         # Search for a product using the given query
         # product_search.ordering_check(search_query)

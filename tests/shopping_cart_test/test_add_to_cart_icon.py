@@ -12,6 +12,7 @@ class TestShoppingIcon:
     def test_add_to_cart_basket_icon(self):
         # Initialize the CartPage object
         cart_page = CartPage(self.driver)
+        cart_page.disable_cookies()
 
         # Steps 1 and 2: Select a product and perform operations on the basket
         cart_page.choose_product()

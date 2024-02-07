@@ -14,6 +14,7 @@ class TestNegativeSearch:
     def test_search_for_invalid_product(self, search_query):
         # Initialize the product search page
         product_search = ProductSearch(self.driver)
+        product_search.disable_cookies()
 
         # Search for a product using an invalid query
         product_search.search_product(search_query)

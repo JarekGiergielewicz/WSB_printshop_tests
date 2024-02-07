@@ -28,6 +28,7 @@ class UserAccount:
         self.phone_check_xpath = UserAccountLocators.phone_check_xpath
         self.name_check_xpath = UserAccountLocators.name_check_xpath
         self.adress_check_xpath = UserAccountLocators.adress_check_xpath
+        self.cookie_css = LoginPageLocators.cookie_css
 
 
 
@@ -66,6 +67,10 @@ class UserAccount:
 
         move_to_elenent(self.driver.find_element(By.CSS_SELECTOR, self.submit_button_css))
         self.driver.find_element(By.CSS_SELECTOR, self.submit_button_css).click()
+
+    @allure.step("Function to disable cookies on the website.")
+    def disable_cookies(self):
+        self.driver.find_element(By.CSS_SELECTOR, self.cookie_css).click()
 
     @allure.step("Account data check")
     def account_data_check(self):

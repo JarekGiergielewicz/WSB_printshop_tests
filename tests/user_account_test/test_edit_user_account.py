@@ -15,6 +15,7 @@ class TestAccount:
     def test_account(self, email, password):
         # Initialize the login page
         login_page = LoginPage(self.driver)
+        login_page.disable_cookies()
 
         # Go to the login page
         login_page.go_to_login_page()

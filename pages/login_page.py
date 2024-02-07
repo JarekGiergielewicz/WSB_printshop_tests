@@ -20,6 +20,12 @@ class LoginPage:
         self.blank_error_css = LoginPageLocators.blank_error_css
         self.log_off_menu_xpath = LoginPageLocators.log_off_menu_xpath
         self.logoff_check_link_text = LoginPageLocators.logoff_check_link_text
+        self.cookie_css = LoginPageLocators.cookie_css
+
+
+    @allure.step("Function to disable cookies on the website.")
+    def disable_cookies(self):
+       self.driver.find_element(By.CSS_SELECTOR, self.cookie_css).click()
 
     @allure.step("Go to the login page")
     def go_to_login_page(self):

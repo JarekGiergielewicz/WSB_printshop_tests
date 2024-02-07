@@ -1,10 +1,8 @@
-import time
-
 from utils.utilities import is_increasing
 from locators.locators import ProductSearchLocators
+from locators.locators import LoginPageLocators
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
 import allure
 
 class ProductSearch:
@@ -17,6 +15,12 @@ class ProductSearch:
         self.search_result_check_css = ProductSearchLocators.search_result_check_css
         self.dropdown_tag_name = ProductSearchLocators.dropdown_tag_name
         self.search_order_page = ProductSearchLocators.search_order_page
+        self.wrapped_content_css = ProductSearchLocators.wrapped_content_css
+        self.cookie_css = LoginPageLocators.cookie_css
+
+    @allure.step("Function to disable cookies on the website.")
+    def disable_cookies(self):
+        self.driver.find_element(By.CSS_SELECTOR, self.cookie_css).click()
 
     @allure.step("Input product '{1}")
     def search_product(self, search_query):
@@ -37,6 +41,6 @@ class ProductSearch:
         self.driver.get(self.search_order_page + search_query)
 
         # Extract and convert low and high prices
-        price_content = self.driver.find_elements(By.CSS_SELECTOR, "div.row:nth-child(3)")
+        price_content = self.driver.find_elements(By.CSS_SELECTOR, self.wrapped_content_css)
         return is_increasing(price_content)
 

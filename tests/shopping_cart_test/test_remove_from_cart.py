@@ -12,6 +12,7 @@ class TestRemoveFromCart:
     def test_remove_product_from_cart(self):
         # Initialize the CartPage object
         cart_page = CartPage(self.driver)
+        cart_page.disable_cookies()
 
         # Step: Remove the product from the cart
         removed_product_msg = cart_page.remove_product_from_cart()
